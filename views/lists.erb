@@ -1,0 +1,18 @@
+<ul id="lists">
+  <% sort_completed_lists(@lists) do |list, list_id| %>
+    <li class="<%= list_class(list) %>">
+      <a href="/lists/<%= list_id %>">
+        <h2><%= list[:name] %></h2>
+        <p><%= todos_completed_count(list) %> / <%= todos_count(list) %></p>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for :header_links do %>
+  <a class="add" href="/lists/new">New List</a>
+<% end %>
+
+Params: <%= params.inspect %>
+<br>
+Session: <%= session[:lists] %>

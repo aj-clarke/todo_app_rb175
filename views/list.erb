@@ -21,12 +21,12 @@
       <% else %>
         <li>
       <% end %>  
-      <form action="/lists/<%= @list_id %>/todos/<%= todo_id %>/change_state" method="post" class="check">
+      <form action="/lists/<%= @list_id %>/todos/<%= todo[:id] %>/change_state" method="post" class="check">
         <input type="hidden" name="completed" value="<%= !todo[:completed] %>" />
         <button type="submit">Complete</button>
       </form>
         <h3><%= todo[:name] %></h3>
-        <form action="/lists/<%= @list_id %>/todos/<%= todo_id %>/delete_todo" method="post" class="delete">
+        <form action="/lists/<%= @list_id %>/todos/<%= todo[:id] %>/delete_todo" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
       </li>
@@ -56,3 +56,5 @@ Params: <%= params.inspect %>
 <br>
 Session: <%= session[:lists] %>
 <br>
+<br>
+List = <%= @list %>
